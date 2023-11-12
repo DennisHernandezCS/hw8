@@ -4,7 +4,7 @@ import { NextResponse } from 'next/server'
 export async function GET(req, res) {  
 
   const rows = await query({
-    query: 'SELECT * FROM genres',
+    query: 'SELECT * FROM user',
     values: [],
   });
 

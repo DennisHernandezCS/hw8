@@ -1,3 +1,4 @@
+'use client'
 import Image from 'next/image'
 import BrandDen from '../public/BranDen.jpg'
 import { Button } from '@/components/ui/button'
@@ -25,12 +26,15 @@ export default function Home() {
           </h2>
           
           <h6 className="text-2xl font-bold text-white">I am a Full Stack Developer</h6>
-
+          
           <form className="flex flex-col items-center justify-center mt-4 bg-gray-900"> 
             <input className="bg-gray-800 text-white px-4 py-2 rounded-md mt-1" type="text" placeholder="Host Name" />
             <input className="bg-gray-800 text-white px-4 py-2 rounded-md mt-1" type="text" placeholder="User Name" />
             <input className="bg-gray-800 text-white px-4 py-2 rounded-md mt-1" type="password" placeholder="Password" />
-            <Button className="bg-red-600 text-white px-4 py-2 rounded-lg mt-1 btn-" href="/">
+            <Button 
+              className="bg-red-600 text-white px-4 py-2 rounded-lg mt-1 btn-" 
+              onClick={() => router.push('/api/genre')}
+              >
               Access The Database
             </Button>
           </form>
