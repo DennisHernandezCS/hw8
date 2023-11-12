@@ -1,14 +1,17 @@
-import db from'@/lib/db';
+import { query } from'@/lib/db';
 import { NextResponse } from 'next/server'
 
-export const GET = async (req, res) => {  
+export async function GET(req, res) {  
 
-  const [rows] = await db.query('SELECT * FROM genre');
-  console.log(rows);
-  const response = await fetch('https://jsonplaceholder.typicode.com/posts')
-  const data = await response.json()
+  const rows = await query({
+    query: 'SELECT * FROM genres',
+    values: [],
+  });
 
-  return NextResponse.json({data});
+  const data = JSON.stringify(rows);
+  
+
+  return new Response(data, {status: 200});
 };
 
 
